@@ -67,5 +67,6 @@ module.exports = {
         fixStyle: 'separate-type-imports',
       },
     ],
+    'import-x/no-unresolved': 'off',
   },
 };

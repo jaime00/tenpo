@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply w-full rounded-lg bg-[#4739bf] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#3529a0] focus:ring-4 sm:w-auto;
+  }
+  .btn-primary-disabled {
+    @apply w-auto cursor-not-allowed rounded-lg bg-[#4234b2bf] px-5 py-2.5 text-center text-sm font-medium text-white sm:w-auto;
+  }
+}
