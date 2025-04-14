@@ -13,8 +13,7 @@ export default function NotFound() {
       <div className="max-w-lg text-center">
         <h1 className="mb-3 text-5xl font-bold">Pagina no encontrada</h1>
         <p className="mb-3 text-lg text-gray-400">
-          ¡UPS! Parece que seguiste un enlace incorrecto. Si cree que esto es un
-          problema con nosotros, por favor díganos.{' '}
+          ¡UPS! Parece que seguiste un enlace incorrecto.
         </p>
         <Link
           to="/"

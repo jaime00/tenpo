@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useLocation } from 'wouter';
 import Input from '../../components/common/Input';
 import useUser from '../../hooks/Auth/useUser';
-import useAlert from '../../hooks/Auth/useToast';
+import useAlert from '../../hooks/Auth/useAlert';
 import { Button } from 'flowbite-react';
 import { getPropFromLocalStorage } from '@/utils/storage/localStorage';
 import { RESPONSE_TYPE } from '@/constants/response';
@@ -15,29 +15,30 @@ export default function LoginForm() {
   const [, navigate] = useLocation();
   const { isLoginLoading, hasLoginError, errorMessage, login, isLogged } =
     useUser();
-  const { customAlert } = useAlert();
+  const { alert } = useAlert();
 
   useEffect(() => {
     if (isLogged) {
       navigate('/');
-      customAlert({
+      alert({
         type: 'icon',
         message: `Bienvenido ${getPropFromLocalStorage(
           LOGIN_PROPS.USERNAME,
         )} a Tenpo 💜`,
       });
     }
-  }, [isLogged, navigate, customAlert]);
+  }, [isLogged, navigate, alert]);
 
   useEffect(() => {
     if (hasLoginError === true)
-      customAlert({ type: RESPONSE_TYPE.ERROR, message: errorMessage || '' });
-  }, [hasLoginError, customAlert, errorMessage]);
+      alert({ type: RESPONSE_TYPE.ERROR, message: errorMessage || '' });
+  }, [hasLoginError, alert, errorMessage]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const { username, password } = data;
     await login({ username, password });
   };
+
   return (
     <div className="ssm:basis-full ssm:w-full flex h-full basis-1/2 items-center justify-center bg-[#FAFAFA] p-0 sm:w-full sm:basis-full md:w-full md:basis-1/2 lg:basis-1/2 2xl:basis-1/2">
       <div>
@@ -95,7 +96,7 @@ export default function LoginForm() {
             color="purple"
             className="w-full"
             size="md"
-            // gradientMonochrome="purple"
+            gradientMonochrome="purple"
             pill
           >
             {isLoginLoading ? 'Iniciando...' : 'Iniciar sesión'}

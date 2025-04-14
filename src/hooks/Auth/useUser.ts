@@ -1,5 +1,5 @@
 import { useCallback, useContext, useState } from 'react';
-import Context from '../../context/UserContext';
+import Context from '../../context/UserContextProvider';
 import loginService from '@/services/auth/login';
 import type { LoginProps, LoginServiceResponse } from '@/types/login';
 import type { JWT } from '@/types/jwt';
@@ -16,6 +16,7 @@ export default function useUser() {
     error: false,
     errorMessage: '',
   });
+
   const login = useCallback(
     async ({ username, password }: LoginProps) => {
       setState({ loading: true, error: false, errorMessage: '' });

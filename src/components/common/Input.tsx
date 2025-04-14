@@ -10,25 +10,17 @@ export default function Input({
 }: InputProps) {
   const classesLabel = label({ hasError });
   const classesInput = input({ hasError });
+  const visibility = hasError ? 'visible' : 'hidden';
 
   return (
     <>
       <label htmlFor={name} className={classesLabel}>
         {title}
       </label>
-
       <input {...otherProps} id={name} className={classesInput} />
-
-      {hasError ? (
-        <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
-      ) : (
-        <p
-          className="mt-1 text-sm text-red-600"
-          style={{ visibility: 'hidden' }}
-        >
-          .
-        </p>
-      )}
+      <p className="mt-1 text-sm text-red-600" style={{ visibility }}>
+        {hasError ? errorMessage : '.'}
+      </p>
     </>
   );
 }

@@ -5,16 +5,17 @@ import { Link } from 'wouter';
 export default function MenuOption({
   id,
   icon,
-  isExpanded,
+  isOpenMenu,
   name,
   path,
 }: MenuOptionProps) {
   const classnames = menuOption();
+
   return (
     <li key={id}>
       <Link to={path} className={classnames}>
         {icon}
-        {isExpanded ? (
+        {isOpenMenu ? (
           <span className="ml-3 flex-1 whitespace-nowrap">{name}</span>
         ) : null}
       </Link>

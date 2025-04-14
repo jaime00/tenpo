@@ -4,7 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 
-import { UserContextProvider } from './context/UserContext.tsx';
+import { UserContextProvider } from './context/UserContextProvider.tsx';
 
 export default function App() {
   return (

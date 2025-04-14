@@ -24,6 +24,6 @@ export default function loginService({
           errorMessage: 'Nombre de usuario o contraseña inválidos',
         });
       }
-    }, 2000);
+    }, 1000);
   });
 }

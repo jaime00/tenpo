@@ -6,17 +6,19 @@ import useUser from '../../hooks/Auth/useUser';
 import { OPTIONS } from '../../constants/sidebarMenuOptions';
 
 export default function SidebarMenuOptions({
-  isExpanded,
+  isOpenMenu,
 }: {
-  isExpanded: boolean;
+  isOpenMenu: boolean;
 }) {
   const { logout } = useUser();
   const [, navigate] = useLocation();
+
   const logoutAction = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     logout();
     navigate('/login');
   };
+
   return (
     <ul className="space-y-2">
       {OPTIONS.map((props: any, index: number) => (
@@ -24,7 +26,7 @@ export default function SidebarMenuOptions({
           {...props}
           key={index}
           id={index}
-          isExpanded={isExpanded}
+          isOpenMenu={isOpenMenu}
         />
       ))}
       <li>
@@ -47,7 +49,7 @@ export default function SidebarMenuOptions({
               d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
             ></path>
           </svg>
-          {isExpanded ? (
+          {isOpenMenu ? (
             <span className="ml-3 flex-1 whitespace-nowrap">Cerrar sesión</span>
           ) : null}
         </Link>

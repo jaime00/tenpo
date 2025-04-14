@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Link } from 'wouter';
 
 import {
@@ -8,16 +7,16 @@ import {
 
 import MenuOptions from '../layout/SidebarMenuOptions';
 import { icon } from '../../utils/classnames';
+import { useToggle } from 'usehooks-ts';
+import { useMemo } from 'react';
 
-export default function SidebarMenu({
-  isExpanded,
-  setIsExpanded,
-}: {
-  isExpanded: boolean;
-  setIsExpanded: (isExpanded: boolean) => void;
-}) {
-  const classesIcon = icon({ additionalClasses: 'm-0 p-0 text-indigo-800' });
-  const styles = { width: isExpanded ? '13rem' : '5rem' };
+export default function SidebarMenu() {
+  const [isOpenMenu, toggleOpenMenu] = useToggle(false);
+  const classesIcon = useMemo(
+    () => icon({ additionalClasses: 'm-0 p-0 text-indigo-800' }),
+    [],
+  );
+  const styles = { width: isOpenMenu ? '13rem' : '5rem' };
 
   return (
     <aside
@@ -33,12 +32,12 @@ export default function SidebarMenu({
             </h3>
           </Link>
         </div>
-        <MenuOptions isExpanded={isExpanded} />
+        <MenuOptions isOpenMenu={isOpenMenu} />
       </div>
       <div className="flex-row justify-center">
         <div className="flex justify-center">
-          <button onClick={() => setIsExpanded(!isExpanded)}>
-            {isExpanded ? (
+          <button onClick={toggleOpenMenu}>
+            {isOpenMenu ? (
               <MinimizeIcon className={classesIcon} />
             ) : (
               <MaximizeIcon className={classesIcon} />

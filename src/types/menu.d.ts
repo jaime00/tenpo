@@ -1,7 +1,7 @@
 export type MenuOptionProps = {
   id: number;
   icon: React.ReactNode;
-  isExpanded: boolean;
+  isOpenMenu: boolean;
   name: string;
   path: string;
 };
