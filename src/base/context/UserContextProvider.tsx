@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react';
-import { getValueFromSessionStorage } from '../utils/storage/localStorage';
+import { getValueFromSessionStorage } from '../utils/storage/sessionStorage';
 
 const Context = createContext({});
 

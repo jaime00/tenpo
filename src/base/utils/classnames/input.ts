@@ -1,5 +1,5 @@
-import { defaultClassNamesProps } from '@/constants/classnames';
-import type { ClassNamesProps } from '@/types/classnames';
+import { defaultClassNamesProps } from '@/base/constants/classnames';
+import type { ClassNamesProps } from '@/base/types/classnames';
 
 export function input({
   hasError = defaultClassNamesProps.hasError,

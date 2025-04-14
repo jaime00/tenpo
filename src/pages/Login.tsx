@@ -1,4 +1,4 @@
-import useUser from '@/hooks/Auth/useUser';
+import useUser from '@/base/hooks/Auth/useUser';
 import LoginForm from '../components/login/LoginForm';
 import { useLocation } from 'wouter';
 import { useEffect } from 'react';

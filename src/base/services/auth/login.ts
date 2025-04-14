@@ -1,6 +1,6 @@
-import enviroment from '@/constants/enviroment';
+import enviroment from '@/base/constants/enviroment';
 import { Md5 } from 'ts-md5';
-import type { LoginProps, LoginServiceResponse } from '@/types/login';
+import type { LoginProps, LoginServiceResponse } from '@/base/types/login';
 
 const { FAKE_USERNAME, FAKE_PASSWORD, FAKE_EMAIL } = enviroment;
 

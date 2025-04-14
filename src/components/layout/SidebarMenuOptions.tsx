@@ -1,9 +1,9 @@
 import { useLocation, Link } from 'wouter';
 
 import SidebarMenuOption from '../layout/SidebarMenuOption';
-import useUser from '../../hooks/Auth/useUser';
+import useUser from '../../base/hooks/Auth/useUser';
 
-import { OPTIONS } from '../../constants/sidebarMenuOptions';
+import { OPTIONS } from '../../base/constants/sidebarMenuOptions';
 
 export default function SidebarMenuOptions({
   isOpenMenu,

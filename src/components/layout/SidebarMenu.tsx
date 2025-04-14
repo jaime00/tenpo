@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/solid';
 
 import MenuOptions from '../layout/SidebarMenuOptions';
-import { icon } from '../../utils/classnames';
+import { icon } from '../../base/utils/classnames';
 import { useToggle } from 'usehooks-ts';
 import { useMemo } from 'react';
 

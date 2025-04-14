@@ -1,6 +1,6 @@
-import { ALERT_BY_DEFAULT, DURATION_ALERT } from '@/constants/alert';
-import { RESPONSE_TYPE } from '@/constants/response';
-import type { AlertType } from '@/types/alert';
+import { ALERT_BY_DEFAULT, DURATION_ALERT } from '@/base/constants/alert';
+import { RESPONSE_TYPE } from '@/base/constants/response';
+import type { AlertType } from '@/base/types/alert';
 import { toast } from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 

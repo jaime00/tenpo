@@ -1,5 +1,5 @@
-import type { MenuOptionProps } from '@/types/menu';
-import { menuOption } from '../../utils/classnames';
+import type { MenuOptionProps } from '@/base/types/menu';
+import { menuOption } from '../../base/utils/classnames';
 import { Link } from 'wouter';
 
 export default function MenuOption({

@@ -1,6 +1,6 @@
 import { ChartSquareBarIcon } from '@heroicons/react/outline';
 
-import { icon } from '@/utils/classnames/icon';
+import { icon } from '@/base/utils/classnames/icon';
 import { UserIcon } from '@heroicons/react/solid';
 
 const commonClasses = icon();

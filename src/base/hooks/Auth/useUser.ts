@@ -1,13 +1,13 @@
 import { useCallback, useContext, useState } from 'react';
 import Context from '../../context/UserContextProvider';
-import loginService from '@/services/auth/login';
-import type { LoginProps, LoginServiceResponse } from '@/types/login';
-import type { JWT } from '@/types/jwt';
+import loginService from '@/base/services/auth/login';
+import type { LoginProps, LoginServiceResponse } from '@/base/types/login';
+import type { JWT } from '@/base/types/jwt';
 import {
   dropValueFromSessionStorage,
   setValueInSessionStorage,
-} from '@/utils/storage/localStorage';
-import { LOGIN_PROPS } from '@/constants/login';
+} from '@/base/utils/storage/sessionStorage';
+import { LOGIN_PROPS } from '@/base/constants/login';
 
 export default function useUser() {
   const { jwt, setJWT } = useContext(Context) as JWT;

@@ -1,5 +1,5 @@
-import type { InputProps } from '@/types/form';
-import { input, label } from '@/utils/classnames';
+import type { InputProps } from '@/base/types/form';
+import { input, label } from '@/base/utils/classnames';
 
 export default function Input({
   title,

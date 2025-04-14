@@ -3,12 +3,12 @@ import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'wouter';
 import Input from '../../components/common/Input';
-import useUser from '../../hooks/Auth/useUser';
-import useAlert from '../../hooks/Auth/useAlert';
+import useUser from '../../base/hooks/Auth/useUser';
+import useAlert from '../../base/hooks/Auth/useAlert';
 import { Button } from 'flowbite-react';
-import { getValueFromSessionStorage } from '@/utils/storage/localStorage';
-import { RESPONSE_TYPE } from '@/constants/response';
-import { LOGIN_PROPS } from '@/constants/login';
+import { getValueFromSessionStorage } from '@/base/utils/storage/sessionStorage';
+import { RESPONSE_TYPE } from '@/base/constants/response';
+import { LOGIN_PROPS } from '@/base/constants/login';
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm();
