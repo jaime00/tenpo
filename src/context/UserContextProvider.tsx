@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react';
-import { getPropFromLocalStorage } from '../utils/storage/localStorage';
+import { getValueFromSessionStorage } from '../utils/storage/localStorage';
 
 const Context = createContext({});
 
@@ -8,7 +8,7 @@ export function UserContextProvider({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
-  const [jwt, setJWT] = useState(() => getPropFromLocalStorage('jwt'));
+  const [jwt, setJWT] = useState(() => getValueFromSessionStorage('jwt'));
   return (
     <Context.Provider value={{ jwt, setJWT }}>{children}</Context.Provider>
   );

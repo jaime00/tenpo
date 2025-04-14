@@ -4,8 +4,8 @@ import loginService from '@/services/auth/login';
 import type { LoginProps, LoginServiceResponse } from '@/types/login';
 import type { JWT } from '@/types/jwt';
 import {
-  removePropFromLocalStorage,
-  setPropInLocalStorage,
+  dropValueFromSessionStorage,
+  setValueInSessionStorage,
 } from '@/utils/storage/localStorage';
 import { LOGIN_PROPS } from '@/constants/login';
 
@@ -29,7 +29,7 @@ export default function useUser() {
             token = '',
           } = response || {};
           if (errorMessage || !token) {
-            removePropFromLocalStorage(LOGIN_PROPS.JWT);
+            dropValueFromSessionStorage(LOGIN_PROPS.JWT);
             setState({
               loading: false,
               error: true,
@@ -37,15 +37,15 @@ export default function useUser() {
             });
             setJWT('');
           } else {
-            setPropInLocalStorage(LOGIN_PROPS.JWT, token);
-            setPropInLocalStorage(LOGIN_PROPS.USER_EMAIL, userEmail);
-            setPropInLocalStorage(LOGIN_PROPS.USERNAME, userName);
+            setValueInSessionStorage(LOGIN_PROPS.JWT, token);
+            setValueInSessionStorage(LOGIN_PROPS.USER_EMAIL, userEmail);
+            setValueInSessionStorage(LOGIN_PROPS.USERNAME, userName);
             setState({ loading: false, error: false, errorMessage: '' });
             setJWT(token);
           }
         })
         .catch((err) => {
-          removePropFromLocalStorage(LOGIN_PROPS.JWT);
+          dropValueFromSessionStorage(LOGIN_PROPS.JWT);
           setState({ loading: false, error: true, errorMessage: err.message });
           console.log(err);
         });
@@ -54,9 +54,9 @@ export default function useUser() {
   );
 
   const logout = useCallback(() => {
-    removePropFromLocalStorage(LOGIN_PROPS.JWT);
-    removePropFromLocalStorage(LOGIN_PROPS.USER_EMAIL);
-    removePropFromLocalStorage(LOGIN_PROPS.USERNAME);
+    dropValueFromSessionStorage(LOGIN_PROPS.JWT);
+    dropValueFromSessionStorage(LOGIN_PROPS.USER_EMAIL);
+    dropValueFromSessionStorage(LOGIN_PROPS.USERNAME);
     setJWT(null);
   }, [setJWT]);
 

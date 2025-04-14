@@ -6,7 +6,7 @@ import Input from '../../components/common/Input';
 import useUser from '../../hooks/Auth/useUser';
 import useAlert from '../../hooks/Auth/useAlert';
 import { Button } from 'flowbite-react';
-import { getPropFromLocalStorage } from '@/utils/storage/localStorage';
+import { getValueFromSessionStorage } from '@/utils/storage/localStorage';
 import { RESPONSE_TYPE } from '@/constants/response';
 import { LOGIN_PROPS } from '@/constants/login';
 
@@ -19,12 +19,13 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (isLogged) {
+      const message = `Bienvenido ${getValueFromSessionStorage(
+        LOGIN_PROPS.USERNAME,
+      )} a Tenpo 💜`;
       navigate('/');
       alert({
         type: 'icon',
-        message: `Bienvenido ${getPropFromLocalStorage(
-          LOGIN_PROPS.USERNAME,
-        )} a Tenpo 💜`,
+        message,
       });
     }
   }, [isLogged, navigate, alert]);

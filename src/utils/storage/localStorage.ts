@@ -1,11 +1,11 @@
-export const getPropFromLocalStorage = (prop: string) => {
-  return localStorage.getItem(prop);
+export const getValueFromSessionStorage = (prop: string) => {
+  return sessionStorage.getItem(prop);
 };
 
-export const setPropInLocalStorage = (prop: string, value: string) => {
-  localStorage.setItem(prop, value);
+export const setValueInSessionStorage = (prop: string, value: string) => {
+  sessionStorage.setItem(prop, value);
 };
 
-export const removePropFromLocalStorage = (prop: string) => {
-  localStorage.removeItem(prop);
+export const dropValueFromSessionStorage = (prop: string) => {
+  sessionStorage.removeItem(prop);
 };
