@@ -5,7 +5,6 @@ import './index.css';
 
 import './styles/general.css';
 import './styles/tailwind.css';
-import './styles/output.css';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 const root = createRoot(rootElement);

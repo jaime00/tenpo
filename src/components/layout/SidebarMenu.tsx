@@ -28,7 +28,9 @@ export default function SidebarMenu({
       <div className="flex flex-col justify-center overflow-y-auto px-5 py-4">
         <div className="mb-5 flex justify-center">
           <Link to="/" className="flex w-72 justify-center">
-            <h3 className="russo-one text-xl text-mainPurple">Tenpo</h3>
+            <h3 className="russo-one pointer-events-none select-none text-xl text-mainPurple">
+              Tenpo
+            </h3>
           </Link>
         </div>
         <MenuOptions isExpanded={isExpanded} />

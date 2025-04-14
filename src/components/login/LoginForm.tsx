@@ -42,7 +42,9 @@ export default function LoginForm() {
     <div className="ssm:basis-full ssm:w-full flex h-full basis-1/2 items-center justify-center bg-[#FAFAFA] p-0 sm:w-full sm:basis-full md:w-full md:basis-1/2 lg:basis-1/2 2xl:basis-1/2">
       <div>
         <div className="mb-6 flex">
-          <h3 className="russo-one text-xl text-mainPurple">Tenpo</h3>
+          <h3 className="russo-one pointer-events-none select-none text-xl text-mainPurple">
+            Tenpo
+          </h3>
         </div>
         <div className="my-6 py-5">
           <p className="text-3xl font-bold">Inicio de sesión</p>
