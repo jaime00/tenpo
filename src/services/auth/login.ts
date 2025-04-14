@@ -21,7 +21,7 @@ export default function loginService({
         });
       } else {
         resolve({
-          errorMessage: 'Invalid username or password',
+          errorMessage: 'Nombre de usuario o contraseña inválidos',
         });
       }
     }, 2000);

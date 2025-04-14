@@ -68,5 +68,6 @@ module.exports = {
       },
     ],
     'import-x/no-unresolved': 'off',
+    '@typescript-eslint/no-explicit-any': 'off', // Allow usage of 'any' type
   },
 };

@@ -1,7 +1,7 @@
 import { Route, Switch } from 'wouter';
 import { Toaster } from 'react-hot-toast';
 
-import Main from './pages/Main.tsx';
+import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 
 import { UserContextProvider } from './context/UserContext.tsx';
@@ -9,10 +9,10 @@ import { UserContextProvider } from './context/UserContext.tsx';
 export default function App() {
   return (
     <UserContextProvider>
-      <div className="h-screen w-screen">
+      <div className="h-screen w-screen animate-fade">
         <Switch>
           <Route path="/login" component={Login} />
-          <Main />
+          <Home />
         </Switch>
       </div>
       <Toaster position="bottom-left" />

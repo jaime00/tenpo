@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'wouter';
 import Input from '../../components/common/Input';
@@ -33,7 +34,7 @@ export default function LoginForm() {
       customAlert({ type: RESPONSE_TYPE.ERROR, message: errorMessage || '' });
   }, [hasLoginError, customAlert, errorMessage]);
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const { username, password } = data;
     await login({ username, password });
   };
@@ -41,8 +42,7 @@ export default function LoginForm() {
     <div className="ssm:basis-full ssm:w-full flex h-full basis-1/2 items-center justify-center bg-[#FAFAFA] p-0 sm:w-full sm:basis-full md:w-full md:basis-1/2 lg:basis-1/2 2xl:basis-1/2">
       <div>
         <div className="mb-6 flex">
-          {/* <PekusIcon className="w-16" /> */}
-          <h3>Hola Tenpo</h3>
+          <h3 className="russo-one text-xl text-mainPurple">Tenpo</h3>
         </div>
         <div className="my-6 py-5">
           <p className="text-3xl font-bold">Inicio de sesión</p>
@@ -62,6 +62,7 @@ export default function LoginForm() {
                 required: true,
                 disabled: isLoginLoading,
                 autoComplete: 'current-username',
+                autoFocus: true,
               }}
               title="Nombre de usuario"
             />
