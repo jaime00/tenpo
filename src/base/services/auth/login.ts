@@ -10,14 +10,14 @@ export default function loginService({
   username,
   password,
 }: LoginProps): Promise<LoginServiceResponse> {
-  const token = Md5.hashStr(password);
+  const passwordHash = Md5.hashStr(password);
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      if (username === FAKE_USERNAME && password === FAKE_PASSWORD) {
+      if (username === FAKE_USERNAME && passwordHash === FAKE_PASSWORD) {
         resolve({
           errorMessage: '',
-          token,
+          token: 'fake-token',
           userName: username,
           userEmail: FAKE_EMAIL,
         });

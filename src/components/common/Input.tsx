@@ -18,7 +18,7 @@ export default function Input({
         {title}
       </label>
       <input {...otherProps} id={name} className={classesInput} />
-      <p className="mt-1 text-sm" style={{ visibility }}>
+      <p className="mt-1 text-sm text-red-600" style={{ visibility }}>
         {hasError ? errorMessage : '.'}
       </p>
     </>
