@@ -5,3 +5,5 @@ export type User = {
   status: string;
   gender: string;
 };
+
+export type Page = number | null;

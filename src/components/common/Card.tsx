@@ -3,7 +3,7 @@ import type { User } from '@/base/types/user';
 export default function Card({ id, name, image }: User) {
   return (
     <article
-      className="max-w-[300px] rounded-lg border border-gray-200 bg-white shadow-sm"
+      className="max-w-[250px] animate-fade rounded-lg border border-gray-200 bg-white shadow-sm"
       key={id}
     >
       <img

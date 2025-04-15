@@ -1,14 +1,13 @@
 import { Link } from 'wouter';
-
+import { useToggle } from 'usehooks-ts';
+import { useMemo } from 'react';
 import {
   LoginIcon as MinimizeIcon,
   LogoutIcon as MaximizeIcon,
 } from '@heroicons/react/solid';
 
-import MenuOptions from './MenuItemList';
-import { icon } from '../../base/utils/classnames';
-import { useToggle } from 'usehooks-ts';
-import { useMemo } from 'react';
+import MenuOptions from '@/components/layout/MenuItemList';
+import { icon } from '@/base/utils/classnames';
 
 export default function Menu() {
   const [isOpenMenu, toggleOpenMenu] = useToggle(false);
