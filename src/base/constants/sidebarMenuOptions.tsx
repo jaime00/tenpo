@@ -1,18 +1,11 @@
-import { ChartSquareBarIcon } from '@heroicons/react/outline';
-
 import { icon } from '@/base/utils/classnames/icon';
 import { UserIcon } from '@heroicons/react/solid';
 
 const commonClasses = icon();
 export const OPTIONS = [
   {
-    name: 'Panel',
-    path: '/',
-    icon: <ChartSquareBarIcon className={commonClasses} />,
-  },
-  {
     name: 'Usuarios',
-    path: '/users',
+    path: '/',
     icon: <UserIcon className={commonClasses} />,
   },
 ];

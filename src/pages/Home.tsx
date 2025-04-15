@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
 
-import Main from './Main';
 import Menu from '@/components/layout/Menu';
 import NotFound from './NotFound';
 import Users from './Users';
@@ -19,12 +18,11 @@ export default function Home() {
     <div className="flex">
       <Menu />
       <main
-        className="h-screen w-11/12 overflow-x-hidden px-4 pt-2 2xl:w-full"
+        className="2xl:w-full h-screen w-11/12 overflow-x-hidden px-4 pt-2"
         id="home-wrapper"
       >
         <Switch>
-          <Route path="/" component={Main}></Route>
-          <Route path="/users" component={Users}></Route>
+          <Route path="/" component={Users}></Route>
           <NotFound />
         </Switch>
       </main>

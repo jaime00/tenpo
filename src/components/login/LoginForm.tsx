@@ -44,7 +44,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="ssm:basis-full ssm:w-full flex h-full basis-1/2 items-center justify-center bg-[#FAFAFA] p-0 sm:w-full sm:basis-full md:w-full md:basis-1/2 lg:basis-1/2 2xl:basis-1/2">
+    <div className="2xl:basis-1/2 flex h-full basis-1/2 items-center justify-center bg-[#FAFAFA] p-0 ssm:w-full ssm:basis-full sm:w-full sm:basis-full md:w-full md:basis-1/2 lg:basis-1/2">
       <div>
         <div className="mb-6 flex">
           <h3 className="russo-one pointer-events-none select-none text-xl text-mainPurple">
