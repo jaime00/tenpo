@@ -1,4 +1,4 @@
-export interface ClassNamesProps {
+export type ClassNamesType = {
   hasError?: boolean;
   additionalClasses?: string;
-}
+};

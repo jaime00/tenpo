@@ -1,7 +1,8 @@
-import useUser from '@/base/hooks/Auth/useUser';
-import LoginForm from '../components/login/LoginForm';
-import { useLocation } from 'wouter';
 import { useEffect } from 'react';
+import { useLocation } from 'wouter';
+
+import LoginForm from '../components/login/LoginForm';
+import useUser from '@/base/hooks/Auth/useUser';
 
 export default function Login() {
   const { isLogged } = useUser();

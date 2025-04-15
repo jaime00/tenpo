@@ -4,9 +4,10 @@ export type LoginProps = {
 };
 
 export type LoginServiceResponse = {
-  loading?: boolean;
   companyId?: string;
+  error?: boolean;
   errorMessage?: string;
+  isLoading?: boolean;
   name?: string;
   roles?: string[];
   token?: string;
@@ -14,5 +15,4 @@ export type LoginServiceResponse = {
   userId?: string;
   userName?: string;
   userPhoto?: string;
-  error?: boolean;
 };

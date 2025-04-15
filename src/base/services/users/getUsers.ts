@@ -7,7 +7,6 @@ const getUsers = async (page: number): Promise<User[]> => {
     const {
       data: { results },
     } = await axios.get(`${USERS_API_URL}?page=${page}`);
-    debugger;
     return results.map((user: User) => ({
       id: user.id,
       name: user.name,

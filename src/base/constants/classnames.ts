@@ -1,6 +1,6 @@
-import type { ClassNamesProps } from '@/base/types/classnames';
+import type { ClassNamesType } from '@/base/types/classnames';
 
-export const defaultClassNamesProps: ClassNamesProps = {
+export const CLASSNAME_BY_DEFAULT: ClassNamesType = {
   hasError: false,
   additionalClasses: '',
 };

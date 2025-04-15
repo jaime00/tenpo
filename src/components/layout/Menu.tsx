@@ -5,12 +5,12 @@ import {
   LogoutIcon as MaximizeIcon,
 } from '@heroicons/react/solid';
 
-import MenuOptions from '../layout/SidebarMenuOptions';
+import MenuOptions from './MenuItemList';
 import { icon } from '../../base/utils/classnames';
 import { useToggle } from 'usehooks-ts';
 import { useMemo } from 'react';
 
-export default function SidebarMenu() {
+export default function Menu() {
   const [isOpenMenu, toggleOpenMenu] = useToggle(false);
   const classesIcon = useMemo(
     () => icon({ additionalClasses: 'm-0 p-0 text-indigo-800' }),

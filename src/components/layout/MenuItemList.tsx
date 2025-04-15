@@ -1,16 +1,14 @@
 import { useLocation, Link } from 'wouter';
 
-import SidebarMenuOption from '../layout/SidebarMenuOption';
+import SidebarMenuOption from './MenuItem';
 import useUser from '../../base/hooks/Auth/useUser';
 
 import { OPTIONS } from '../../base/constants/sidebarMenuOptions';
 
-export default function SidebarMenuOptions({
-  isOpenMenu,
-}: {
-  isOpenMenu: boolean;
-}) {
-  const { logout } = useUser();
+export default function MenuItemList({ isOpenMenu }: { isOpenMenu: boolean }) {
+  const {
+    actions: { logout },
+  } = useUser();
   const [, navigate] = useLocation();
 
   const logoutAction = (e: React.MouseEvent<HTMLAnchorElement>) => {

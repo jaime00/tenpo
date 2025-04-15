@@ -1,20 +1,26 @@
-import { useEffect } from 'react';
-import type { FieldValues, SubmitHandler } from 'react-hook-form';
-import { useForm } from 'react-hook-form';
-import { useLocation } from 'wouter';
-import Input from '../../components/common/Input';
-import useUser from '../../base/hooks/Auth/useUser';
-import useAlert from '../../base/hooks/Auth/useAlert';
 import { Button } from 'flowbite-react';
+import { useEffect } from 'react';
+import { useForm, type FieldValues, type SubmitHandler } from 'react-hook-form';
+import { useLocation } from 'wouter';
+
+import Input from '@/components/common/Input';
+import useAlert from '@/base/hooks/Auth/useAlert';
+import useUser from '@/base/hooks/Auth/useUser';
 import { getValueFromSessionStorage } from '@/base/utils/storage/sessionStorage';
-import { RESPONSE_TYPE } from '@/base/constants/response';
 import { LOGIN_PROPS } from '@/base/constants/login';
+import { RESPONSE_TYPE } from '@/base/constants/response';
+import { ALERT_TYPE } from '@/base/constants/alert';
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm();
   const [, navigate] = useLocation();
-  const { isLoginLoading, hasLoginError, errorMessage, login, isLogged } =
-    useUser();
+  const {
+    isLoading,
+    hasLoginError,
+    errorMessage,
+    actions: { login },
+    isLogged,
+  } = useUser();
   const { alert } = useAlert();
 
   useEffect(() => {
@@ -23,17 +29,14 @@ export default function LoginForm() {
         LOGIN_PROPS.USERNAME,
       )} a Tenpo 💜`;
       navigate('/');
-      alert({
-        type: 'icon',
-        message,
-      });
+      alert({ type: ALERT_TYPE.ICON, message });
     }
-  }, [isLogged, navigate, alert]);
+  }, [alert, isLogged, navigate]);
 
   useEffect(() => {
-    if (hasLoginError === true)
+    if (hasLoginError)
       alert({ type: RESPONSE_TYPE.ERROR, message: errorMessage || '' });
-  }, [hasLoginError, alert, errorMessage]);
+  }, [alert, hasLoginError, errorMessage]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const { username, password } = data;
@@ -64,7 +67,7 @@ export default function LoginForm() {
                 type: 'text',
                 ...register('username'),
                 required: true,
-                disabled: isLoginLoading,
+                disabled: isLoading,
                 autoComplete: 'current-username',
                 autoFocus: true,
               }}
@@ -80,7 +83,7 @@ export default function LoginForm() {
                 type: 'password',
                 ...register('password'),
                 required: true,
-                disabled: isLoginLoading,
+                disabled: isLoading,
                 autoComplete: 'current-password',
               }}
               title="Contraseña"
@@ -88,19 +91,21 @@ export default function LoginForm() {
           </div>
           <div className="mb-6 flex items-start">
             <div className="flex h-5 items-center">
-              {/* <a>Olvidé mi contraseña</a> */}
+              <a className="cursor-pointer text-sm text-mainPurple hover:underline">
+                Olvidé mi contraseña
+              </a>
             </div>
           </div>
           <Button
             type="submit"
-            disabled={isLoginLoading}
+            disabled={isLoading}
             color="purple"
             className="w-full"
             size="md"
             gradientMonochrome="purple"
             pill
           >
-            {isLoginLoading ? 'Iniciando...' : 'Iniciar sesión'}
+            {isLoading ? 'Iniciando...' : 'Iniciar sesión'}
           </Button>
         </form>
       </div>
