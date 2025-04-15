@@ -25,7 +25,7 @@ Crea un archivo `.env` en la raíz del proyecto con el siguiente contenido:
 
 ```env
 VITE_APP_FAKE_USERNAME=admin
-VITE_APP_FAKE_PASSWORD=admin
+VITE_APP_FAKE_PASSWORD=21232f297a57a5a743894a0e4a801fc3
 VITE_APP_FAKE_EMAIL=admin@admin.com
 VITE_APP_USERS_API_URL=https://rickandmortyapi.com/api/character
 ```
